@@ -3,8 +3,8 @@ import numpy as np
 # -------------------------------INPUT-------------------------------------------------------
 number_of_river_patches = 44
 id_file = 'mask_ul.dat'
-outputfile = 'FA_ul-8_test.dat'
-fraktion_file = 'fraktion8.csv'
+outputfile = 'FA_ol-8.dat'
+fraktion_file = 'oberschicht_fraktion8.csv'
 schwelle_id = 999
 schwelle_value = 1
 # -------------------------------------------------------------------------------------------
@@ -13,7 +13,7 @@ schwelle_value = 1
 id_array = np.genfromtxt(id_file, skip_header=8, dtype=np.float16, skip_footer=1)
 
 # for fraction 8
-section_fraction = np.append(np.genfromtxt(fraktion_file, skip_header=1, dtype=np.float16, delimiter=','),
+section_fraction = np.append(np.genfromtxt(fraktion_file, skip_header=0, dtype=np.float16, delimiter=','),
                              schwelle_value)
 
 # Defining sections
