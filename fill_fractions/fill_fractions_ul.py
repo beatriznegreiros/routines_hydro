@@ -2,33 +2,40 @@ import numpy as np
 
 # -------------------------------INPUT-------------------------------------------------------
 number_of_river_patches = 44
-id_file = 'mask_ul.dat'
-outputfile = 'FA_ol-8.dat'
-fraktion_file = 'oberschicht_fraktion8.csv'
+id_file = 'id_2007_incl_ramps_corrected.dat'
+outputfile = 'FA_ul-1.dat'
+fraktion_file = 'Korngroeßenverteilung_Mesh_final_new.csv'
 schwelle_id = 999
-schwelle_value = 1
+schwelle_value = 0
+usecols = np.arange(2, 46)
+frak = 1
 # -------------------------------------------------------------------------------------------
 
 # Import
 id_array = np.genfromtxt(id_file, skip_header=8, dtype=np.float16, skip_footer=1)
 
-# for fraction 8
-section_fraction = np.append(np.genfromtxt(fraktion_file, skip_header=0, dtype=np.float16, delimiter=','),
+# Read the fractions for each section according to the fraktion_file given path
+section_fraction = np.append(np.genfromtxt(fraktion_file, max_rows=1, skip_header=24-frak, usecols=usecols, dtype=np.float16, delimiter=','),
                              schwelle_value)
-
+print(section_fraction)
 # Defining sections
 # Patch identifiers range from 10 till number of patches*10 plus the identifier for the schwellen (river ramps)
-sections = np.append(np.array(range(10, (number_of_river_patches + 1) * 10, 10)), [schwelle_id], axis=0)  #include mask value for schwelle
+sections_bed = np.append(np.arange(10, (number_of_river_patches + 1) * 10, 10), [schwelle_id], axis=0)
+                      #include mask value for schwelle
+print(sections_bed)
 
-print(sections)
+sections_banks = np.append(np.arange(11, (number_of_river_patches + 1) * 10, 10), [schwelle_id], axis=0)
+print(sections_banks)
 
-if not np.shape(sections) == np.shape(section_fraction):
+if not np.shape(sections_bed) == np.shape(section_fraction):
     print("Warning! Number of patches do not match")
 
-for n, node in np.ndenumerate(id_array):
-    for i, section in np.ndenumerate(sections):
-        if node == section:
-            id_array[n] = section_fraction[i]
+for i, section in np.ndenumerate(sections_bed):
+    id_array = np.where(id_array != section, id_array, section_fraction[i])
+
+for i, section in np.ndenumerate(sections_banks):
+    id_array = np.where(id_array != section, id_array, section_fraction[i])
+
 
 np.savetxt(outputfile, id_array, fmt='%1.2f')
 
