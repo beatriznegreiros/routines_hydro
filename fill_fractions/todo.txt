@@ -1,0 +1,6 @@
+DZG:
+1 Option : 	Riverbed  value: 3
+		Rest (incl. riverbanks): 0
+2 Option:
+		Riverbed value and riverbanks: 3
+		Rest: 0
