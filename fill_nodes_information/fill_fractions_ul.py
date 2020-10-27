@@ -2,8 +2,8 @@ import numpy as np
 
 # -------------------------------INPUT-------------------------------------------------------
 number_of_river_patches = 44
-id_file = 'id_2007_incl_ramps_corrected.dat'
-outputfile = 'FA_ul-8.dat'
+id_file = 'id_mesh_refined_acuna.dat'
+outputfile = '03_refined_mesh_by_acuna/FA_ul-8.dat'
 fraktion_file = 'Korngroeßenverteilung_Mesh_final_new.csv'
 schwelle_id = 999
 schwelle_value = 1
