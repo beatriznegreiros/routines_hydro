@@ -35,3 +35,7 @@ The routine takes the following input parameters:
 ## Dependency
 - numpy 
 
+
+### Developed in:
+
+[![Image](Logo_LWW.JPG)](https://www.iws.uni-stuttgart.de/lww/)
