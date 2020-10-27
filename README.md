@@ -6,7 +6,7 @@ The following routines are included:
 - ``fil_fractions_ul_py``: This routine does the exact same as ``fill_fractions_al.py`` but for the underlayer.
 - ``fill_dzg``: This routines produces input files containing the erodibility factor of each river section. 
 
-### Routines fill_fractions_al.py and fill_fractions_ul.py
+### fill_fractions_al.py and fill_fractions_ul.py
 
 *Please note:   the id of river banks are delimited by multiples of 10 (ex.: 10,20,30...)
                 the id of the river beds are delimited by (multiples of 10) + 1 (ex.: 11,21,31..)*
@@ -20,7 +20,7 @@ The routine takes the following input parameters:
 
         
 
-### Routine fill_dzg.py
+### fill_dzg.py
 
 *Please note:   the id of river banks are delimited by multiples of 10 (ex.: 10,20,30...)
                 the id of the river beds are delimited by (multiples of 10) + 1 (ex.: 11,21,31..)*
