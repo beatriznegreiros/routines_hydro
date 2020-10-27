@@ -7,9 +7,10 @@ outputfile = '03_refined_mesh_by_acuna/FA_al-8.dat'
 fraktion_file = 'Korngroeßenverteilung_Mesh_final_new.csv'
 schwelle_id = 999
 schwelle_value = 1
-usecols = np.arange(2, 46)
 frak = 8
 # -------------------------------------------------------------------------------------------
+
+usecols = np.arange(2, 46)
 
 # Import
 id_array = np.genfromtxt(id_file, skip_header=8, dtype=np.float16, skip_footer=1)

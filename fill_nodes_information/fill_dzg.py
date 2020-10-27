@@ -4,13 +4,13 @@ import numpy as np
 number_of_river_patches = 44
 id_file = 'id_mesh_refined_acuna.dat'
 outputfile = 'dzg_2007_acuna_option_1.dat'
-value_bed = 3
-value_banks = 0
 schwelle_id = 999
 schwelle_value = 0
-usecols = np.arange(2, 46)
+value_bed = 3
+value_banks = 0
 # -------------------------------------------------------------------------------------------
 
+usecols = np.arange(2, 46)
 # Import
 id_array = np.genfromtxt(id_file, skip_header=8, dtype=np.float16, skip_footer=1)
 
